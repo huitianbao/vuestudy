@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮01</button>
+		<button>按钮02</button>
+		<button>按钮03</button>
+		<button>按钮04</button>
+		<button>按钮05</button>
+	</body>
+	
+	<!-- 变量在某个范围内是可用的 -->
+	
+	<script> 
+	{
+		var name="jhhh";
+		console.log(name);
+	}
+	
+	// console.log(name);
+	
+	var btns=document.getElementsByTagName("button");
+	
+	for(var i=0;i<btns.length;i++){
+		// alert(i);
+		btns[i].addEventListener("click",function(){
+			console.log(" "+i+ "点击");
+		})
+	}
+	
+	
+	// for(let i=0;i<btns.length;i++){
+	// 	btns[i].addEventListener("click",function(){
+	// 		console.log("第 "+(i+1)+"个按钮被点击");
+	// 	});
+	// }
+	
+	
+	
+	</script>
+</html>
