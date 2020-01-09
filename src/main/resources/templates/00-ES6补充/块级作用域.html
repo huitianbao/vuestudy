@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮01</button>
+		<button>按钮02</button>
+		<button>按钮03</button>
+		<button>按钮04</button>
+		<button>按钮05</button>
+	</body>
+	
+	<!-- 变量在某个范围内是可用的 -->
+	
+	<script> 
+	{
+		var name="jhhh";
+		console.log(name);
+	}
+	
+	// console.log(name);
+	
+	var btns=document.getElementsByTagName("button");
+	
+	// 错误的方式
+	for(var i=0;i<btns.length;i++){
+		// alert(i);
+		btns[i].addEventListener("click",function(){
+			console.log(" "+i+ "点击");
+		});
+	}
+	
+	// 正确的方式
+	// for(let i=0;i<btns.length;i++){
+	// 	btns[i].addEventListener("click",function(){
+	// 		console.log("第 "+(i+1)+"个按钮被点击");
+	// 	});
+	// }
+	
+	// 上面的代码相当于下面的代码
+	// 下面的i 是var
+	/* 
+	{
+		i=0;
+		btns[i].addEventListener("click",function(){
+			console.log(" "+i+ "点击");
+		});
+	}
+	
+	{
+		i=1;
+		btns[i].addEventListener("click",function(){
+			console.log(" "+i+ "点击");
+		});
+	}
+	
+	{
+		i=2;
+		btns[i].addEventListener("click",function(){
+			console.log(" "+i+ "点击");
+		});
+	}
+	
+	{
+		i=3;
+		btns[i].addEventListener("click",function(){
+			console.log(" "+i+ "点击");
+		});
+	}
+	
+	{
+		i=4;
+		btns[i].addEventListener("click",function(){
+			console.log(" "+i+ "点击");
+		});
+	}
+	 */
+	
+	// 闭包
+	// 正确的写法
+	for(var i=0;i<btns.length;i++){
+		(function(i){
+			btns[i].addEventListener("click",function(){
+				console.log("第 "+(i+1)+"个按钮被点击");
+			});
+		})(i)
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</html>
